@@ -34,45 +34,54 @@ const AddTodo = ({ addNew, setAddNew }) => {
   };
 
   return (
-    <div className="">
-      <form className="flex flex-col" onSubmit={handleSubmit}>
-        <label className="py-4">
+    <div className=" h-screen flex justify-center items-center">
+      <form className="flex flex-col " onSubmit={handleSubmit}>
+        <label className="py-4 text-2xl">
           Title:{" "}
           <input
+            className="border-b"
             type="text"
             value={todo.title}
             onChange={(e) => setTodo({ ...todo, title: e.target.value })}
           />
         </label>
-        <label className="py-4">
+        <label className="py-4 text-2xl">
           Description:{" "}
           <input
+            className="border-b"
             type="text"
             value={todo.description}
             onChange={(e) => setTodo({ ...todo, description: e.target.value })}
           />
         </label>
-        <label className="py-4">
+        <label className="py-4 text-2xl">
           Deadline:{" "}
           <input
+            className="border-b px-4"
             type="date"
             value={todo.deadline}
-            className="dark:[color-scheme:dark]"
+            
             onChange={(e) => setTodo({ ...todo, deadline: e.target.value })}
           />
         </label>
-        <div className="flex gap-2">
+        <div className="flex gap-3 mt-5">
           <button
-            className="p-2 bg-gray-400 rounded-sm text-black font-bold"
+            className="p-2 bg-blue-200 rounded-sm text-black"
             type="submit"
           >
             Add
           </button>
           <button
-            className="p-2 bg-gray-400 rounded-sm text-black font-bold"
+            className="p-2 bg-blue-200 rounded-sm text-black"
             type="reset"
           >
             Reset
+          </button>
+          <button
+            className="p-2 bg-red-200 rounded-sm text-black"
+            onClick={() => setAddNew(false)}
+          >
+            Cancel
           </button>
         </div>
       </form>

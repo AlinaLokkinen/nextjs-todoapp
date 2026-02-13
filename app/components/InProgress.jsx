@@ -34,9 +34,9 @@ const InProgress = () => {
 
   return (
     <div>
-      <h2 className="p-5">In progress</h2>
+      <h2 className="p-5 text-2xl text-center">In progress</h2>
 
-      {todos.map(([id, t]) => {
+      {todos.length === 0 ? <p className="text-center mt-15">No tasks in progress!</p> : todos.map(([id, t]) => {
         return (
           <div>
             <ul className="m-10" key={id}>

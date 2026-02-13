@@ -22,30 +22,39 @@ const TodoItem = ({ todo, id }) => {
     <div>
       <ul className="flex gap-4">
         <div className="self-center">
-          {dayDiff <= 0 ? (
+          {dayDiff <= 0 && todo.status != "done" ? (
             <img className="max-h-10" src="./red.svg" alt="red calendar icon" />
-          ) : dayDiff <= 7 ? (
+          ) : dayDiff <= 7 && todo.status != "done" ? (
             <img
               className="max-h-10"
               src="./yellow.svg"
-              alt="yellow calendar icon"
+              alt="red calendar icon"
             />
+          ) : 
+            todo.status != "done" ? (
+              <img
+                className="max-h-10"
+                src="./green.svg"
+                alt="green calendar icon"
+              />
+            
           ) : (
             <img
-              className="max-h-10"
-              src="./green.svg"
-              alt="green calendar icon"
-            />
-          )}
+                className="max-h-10"
+                src="./done.svg"
+                alt="g"
+              />)}
         </div>
         <div className="flex flex-col gap-2 shadow-md rounded-md w-full p-4">
           <li>Title: {todo.title}</li>
           <li>Description: {todo.description}</li>
           <li> Deadline: {todo.deadline}</li>
           <div className="flex gap-3">
-            {todo.status === "todo" ? (
+            {todo.status === "todo" && (
               <SetInProgressButton todo={todo} id={id} />
-            ) : (
+            )}
+
+            {todo.status === "inProgress" && (
               <SetDoneButton todo={todo} id={id} />
             )}
             <EditButton />

@@ -31,8 +31,8 @@ const Todo = () => {
 
   return (
     <div>
-      <h2 className="p-5">Todo</h2>
-      {todos.map(([id, t]) => {
+      <h2 className="p-5 text-2xl text-center">Todo</h2>
+      {todos.length === 0 ? <p className="text-center mt-15">No new tasks!</p> : todos.map(([id, t]) => {
         return (
           <div className="m-10" key={id}>
             <ul>
