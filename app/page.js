@@ -6,7 +6,7 @@ import Done from "./components/Done";
 import AddTodo from "./components/AddTodo";
 import { useState } from "react";
 
-export default function Home() {
+export default function Page() {
   const [addNew, setAddNew] = useState(false);
 
   return addNew ? (

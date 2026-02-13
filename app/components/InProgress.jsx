@@ -20,7 +20,7 @@ const InProgress = () => {
     const todosQuery = query(
       todosRef,
       orderByChild("status"),
-      equalTo("inProgress")
+      equalTo("inProgress"),
     );
     onValue(todosQuery, (snapshot) => {
       const data = snapshot.val();
@@ -37,32 +37,11 @@ const InProgress = () => {
       <h2 className="p-5">In progress</h2>
 
       {todos.map(([id, t]) => {
-        const today = new Date();
-        const calculateDaysBetween = () => {
-          const start = new Date(today);
-          const end = new Date(t.deadline);
-
-          const timeDiff = end - start;
-          const dayDiff = timeDiff / (1000 * 3600 * 24);
-          return dayDiff;
-        };
-        const dayDiff = calculateDaysBetween();
         return (
           <div>
             <ul className="m-10" key={id}>
-              <li
-                className={
-                  dayDiff <= 0
-                    ? "bg-red-100 p-5 rounded"
-                    : dayDiff <= 7
-                    ? "bg-yellow-200 p-5 rounded"
-                    : "bg-green-200 p-5 rounded"
-                }
-              >
-                <TodoItem todo={t} />
-                <div className="mt-2">
-                  <SetDoneButton todo={t} id={id} />
-                </div>
+              <li>
+                <TodoItem todo={t} id={id} />
               </li>
             </ul>
           </div>
