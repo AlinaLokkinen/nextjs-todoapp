@@ -30,7 +30,7 @@ const Todo = () => {
   }, []);
 
   return (
-    <div className="bg-gray-100 w-1/3 rounded-sm">
+    <div>
       <h2 className="p-5">Todo</h2>
       {todos.map(([id, t]) => {
         return (

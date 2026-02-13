@@ -20,26 +20,38 @@ const TodoItem = ({ todo, id }) => {
 
   return (
     <div>
-      <ul
-        className={
-          dayDiff <= 0
-            ? "bg-red-100 p-5 rounded"
-            : dayDiff <= 7
-              ? "bg-yellow-200 p-5 rounded"
-              : "bg-green-200 p-5 rounded"
-        }
-      >
-        <li>Title: {todo.title}</li>
-        <li>Description: {todo.description}</li>
-        <li> Deadline: {todo.deadline}</li>
-        {todo.status === "todo" ? (
-          <SetInProgressButton todo={todo} id={id} />
-        ) : todo.status === "inProgress" ? (
-          <SetDoneButton todo={todo} id={id} />
-        ) : (
-          <DeleteButton id={id} />
-        )}
-        <EditButton />
+      <ul className="flex gap-4">
+        <div className="self-center">
+          {dayDiff <= 0 ? (
+            <img className="max-h-10" src="./red.svg" alt="red calendar icon" />
+          ) : dayDiff <= 7 ? (
+            <img
+              className="max-h-10"
+              src="./yellow.svg"
+              alt="yellow calendar icon"
+            />
+          ) : (
+            <img
+              className="max-h-10"
+              src="./green.svg"
+              alt="green calendar icon"
+            />
+          )}
+        </div>
+        <div className="flex flex-col gap-2 shadow-md rounded-md w-full p-4">
+          <li>Title: {todo.title}</li>
+          <li>Description: {todo.description}</li>
+          <li> Deadline: {todo.deadline}</li>
+          <div className="flex gap-3">
+            {todo.status === "todo" ? (
+              <SetInProgressButton todo={todo} id={id} />
+            ) : (
+              <SetDoneButton todo={todo} id={id} />
+            )}
+            <EditButton />
+            <DeleteButton id={id} />
+          </div>
+        </div>
       </ul>
     </div>
   );

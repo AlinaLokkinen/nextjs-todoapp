@@ -14,7 +14,7 @@ export default function Page() {
       <AddTodo addNew={addNew} setAddNew={setAddNew} />
     </div>
   ) : (
-    <div className="p-10 h-screen bg-gray-200">
+    <div className="p-10 bg-gray-200 h-screen">
       <h1 className="text-2xl font-medium">Todo list</h1>
 
       <button
@@ -24,15 +24,18 @@ export default function Page() {
         Add new Todo item
       </button>
 
-      <div className="flex mt-5 justify-between gap-5">
-        <Todo />
+      <div className="flex mt-5 justify-between gap-5 ">
+        <div className="bg-white p-4 rounded w-1/3 h-[70vh] overflow-y-auto">
+          <Todo />
+        </div>
 
-        <InProgress />
-
-        <Done />
+        <div className="bg-white p-4 rounded shadow w-1/3 h-[70vh] overflow-y-auto">
+          <InProgress />
+        </div>
+        <div className="bg-white p-4 rounded shadow w-1/3 h-[70vh] overflow-y-auto">
+          <Done />
+        </div>
       </div>
-
-      
     </div>
   );
 }

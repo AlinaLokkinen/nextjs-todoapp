@@ -22,7 +22,7 @@ const SetInProgressButton = ({ todo, id }) => {
     <div>
       <button
         onClick={changeStatusToInProgress}
-        className="p-2 bg-gray-400 text-black rounded-sm"
+        className="p-2 bg-blue-200 text-black rounded-sm"
       >
         Start
       </button>

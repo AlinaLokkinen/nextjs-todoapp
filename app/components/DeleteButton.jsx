@@ -14,7 +14,10 @@ const DeleteButton = ({ id }) => {
         onClick={deleteTodo}
         className="p-2 bg-red-400 text-black rounded-sm "
       >
+        <div className="flex gap-1">
+          <img className="max-h-5" src="./delete.svg" alt="a trash can icon" />
         Delete
+        </div>
       </button>
     </div>
   );
